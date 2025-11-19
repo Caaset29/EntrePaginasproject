@@ -1,70 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
-    <!-- Fondo rojo principal -->
-    <item android:drawable="@color/red_primary" />
-
-    <!-- CÍRCULO GRANDE CENTRAL -->
     <item>
-        <shape android:shape="oval">
-            <solid android:color="#20FFFFFF"/> <!-- Transparencia suave -->
-            <size android:width="380dp" android:height="380dp"/>
-            <translate android:x="-40dp" android:y="140dp"/>
+        <shape android:shape="rectangle">
+            <solid android:color="@color/red_primary" />
         </shape>
     </item>
 
-    <!-- CÍRCULO MEDIANO SUPERIOR IZQUIERDA -->
-    <item>
+    <item
+        android:width="300dp"
+        android:height="300dp"
+        android:top="-100dp"
+        android:left="-100dp">
         <shape android:shape="oval">
-            <solid android:color="#18FFFFFF"/>
-            <size android:width="150dp" android:height="150dp"/>
-            <translate android:x="20dp" android:y="10dp"/>
-        </shape>
+            <solid android:color="#20FFFFFF" /> </shape>
     </item>
 
-    <!-- CÍRCULO MEDIANO SUPERIOR DERECHA -->
-    <item>
+    <item
+        android:width="250dp"
+        android:height="250dp"
+        android:bottom="-80dp"
+        android:right="-80dp"
+        android:gravity="bottom|end">
         <shape android:shape="oval">
-            <solid android:color="#10FFFFFF"/>
-            <size android:width="120dp" android:height="120dp"/>
-            <translate android:x="260dp" android:y="40dp"/>
-        </shape>
+            <solid android:color="#10FFFFFF" /> </shape>
     </item>
 
-    <!-- CÍRCULO SEMITRANSPARENTE INFERIOR IZQUIERDA -->
-    <item>
+    <item
+        android:width="120dp"
+        android:height="120dp"
+        android:top="150dp"
+        android:right="-40dp"
+        android:gravity="top|end">
         <shape android:shape="oval">
-            <solid android:color="#12FFFFFF"/>
-            <size android:width="180dp" android:height="180dp"/>
-            <translate android:x="-30dp" android:y="350dp"/>
-        </shape>
-    </item>
-
-    <!-- CÍRCULO PEQUEÑO INFERIOR DERECHA -->
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="#1AFFFFFF"/>
-            <size android:width="80dp" android:height="80dp"/>
-            <translate android:x="300dp" android:y="430dp"/>
-        </shape>
-    </item>
-
-    <!-- PUNTO PEQUEÑO EXTRA (detalle decorativo) -->
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="#22FFFFFF"/>
-            <size android:width="26dp" android:height="26dp"/>
-            <translate android:x="240dp" android:y="150dp"/>
-        </shape>
-    </item>
-
-    <!-- PUNTO PEQUEÑÍSIMO (detalle) -->
-    <item>
-        <shape android:shape="oval">
-            <solid android:color="#30FFFFFF"/>
-            <size android:width="16dp" android:height="16dp"/>
-            <translate android:x="80dp" android:y="260dp"/>
-        </shape>
+            <solid android:color="#08FFFFFF" /> </shape>
     </item>
 
 </layer-list>
