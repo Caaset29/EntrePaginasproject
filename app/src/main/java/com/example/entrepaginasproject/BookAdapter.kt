@@ -1,5 +1,6 @@
 package com.example.entrepaginasproject
 
+import android.annotation.SuppressLint
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -7,7 +8,7 @@ import com.bumptech.glide.Glide
 import com.example.entrepaginasproject.api.Libro
 import com.example.entrepaginasproject.databinding.ItemBookBinding
 
-class BookAdapter(private val libros: List<Libro>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter(private var libros: List<Libro>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
 
     // URL base de tu servidor para las imágenes (Ajusta si usas celular físico)
     private val BASE_URL_IMG = "http://192.168.1.58/"
@@ -42,4 +43,11 @@ class BookAdapter(private val libros: List<Libro>) : RecyclerView.Adapter<BookAd
     }
 
     override fun getItemCount(): Int = libros.size
+
+    // --- NUEVA FUNCIÓN: ACTUALIZAR LISTA ---
+    @SuppressLint("NotifyDataSetChanged")
+    fun actualizarLista(nuevaLista: List<Libro>) {
+        this.libros = nuevaLista
+        notifyDataSetChanged() // Avisa al RecyclerView que repinte todo
+    }
 }
