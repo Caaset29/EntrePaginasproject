@@ -3,7 +3,10 @@ package com.example.entrepaginasproject.api
 import retrofit2.Call
 import retrofit2.http.Field
 import retrofit2.http.FormUrlEncoded
+import retrofit2.http.GET
 import retrofit2.http.POST
+
+
 
 interface ApiService {
 
@@ -21,4 +24,7 @@ interface ApiService {
         @Field("email") email: String,
         @Field("password") pass: String
     ): Call<LoginResponse>
+
+    @GET("libros/mostrar.php")
+    fun obtenerLibros(): Call<List<Libro>>
 }
