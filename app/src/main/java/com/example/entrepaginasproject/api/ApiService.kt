@@ -14,7 +14,9 @@ interface ApiService {
     @POST("usuarios/registrar.php")
     fun registrarUsuario(
         @Field("nombre_completo") nombre: String,
+        @Field("alias") alias: String,
         @Field("email") email: String,
+        @Field("celular") celular: String,
         @Field("password") pass: String
     ): Call<LoginResponse> // Usamos la misma respuesta genérica (success/message)
 

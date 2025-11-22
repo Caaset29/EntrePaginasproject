@@ -28,7 +28,9 @@ class RegisterActivity : AppCompatActivity() {
         // Botón REGISTRARME
         binding.btnRegistrar.setOnClickListener {
             val nombre = binding.etNombre.text.toString().trim()
+            val alias = binding.etAlias.text.toString().trim()
             val email = binding.etEmailReg.text.toString().trim()
+            val celular = binding.etCelular.text.toString().trim()
             val pass = binding.etPasswordReg.text.toString().trim()
             val confirmPass = binding.etPasswordConfirm.text.toString().trim()
 
@@ -43,12 +45,12 @@ class RegisterActivity : AppCompatActivity() {
             }
 
             // Llamada a la API
-            registerUser(nombre, email, pass)
+            registerUser(nombre, alias, email, celular, pass)
         }
     }
 
-    private fun registerUser(nombre: String, email: String, pass: String) {
-        ApiClient.instance.registrarUsuario(nombre, email, pass)
+    private fun registerUser(nombre: String, alias: String, email: String, celular: String, pass: String) {
+        ApiClient.instance.registrarUsuario(nombre, alias, email, celular, pass)
             .enqueue(object : Callback<LoginResponse> {
                 override fun onResponse(call: Call<LoginResponse>, response: Response<LoginResponse>) {
                     if (response.isSuccessful && response.body()?.success == true) {
