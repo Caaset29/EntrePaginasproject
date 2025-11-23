@@ -49,6 +49,11 @@ class LoginActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, "Bienvenido ${usuario?.nombre}", Toast.LENGTH_LONG).show()
 
                         // AQUÍ GUARDARÍAS LA SESIÓN (SharedPreferences) SI QUISIERAS
+                        if (usuario != null) {
+                            val session = SessionManager(applicationContext)
+                            session.saveUser(usuario)
+                        }
+
 
                         // Ir al Catálogo
                         val intent = Intent(this@LoginActivity, CatalogoActivity::class.java)

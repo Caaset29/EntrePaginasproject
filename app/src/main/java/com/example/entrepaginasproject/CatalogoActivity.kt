@@ -1,5 +1,6 @@
 package com.example.entrepaginasproject
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.widget.TextView
@@ -26,6 +27,28 @@ class CatalogoActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityCatalogoBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        // En tu onCreate de CatalogoActivity:
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_cart -> {
+                    Toast.makeText(this, "Próximamente: Carrito", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_favorites -> {
+                    Toast.makeText(this, "Próximamente: Favoritos", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_profile -> {
+                    // IR AL PERFIL
+                    startActivity(Intent(this, PerfilActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
 
         setupRecyclerView()
         cargarLibrosDesdeApi()
