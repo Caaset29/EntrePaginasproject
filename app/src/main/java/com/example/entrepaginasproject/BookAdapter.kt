@@ -1,6 +1,7 @@
 package com.example.entrepaginasproject
 
 import android.annotation.SuppressLint
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
@@ -39,6 +40,16 @@ class BookAdapter(private var libros: List<Libro>) : RecyclerView.Adapter<BookAd
                 .placeholder(android.R.drawable.ic_menu_gallery) // Imagen de carga
                 .error(android.R.drawable.ic_dialog_alert) // Imagen si falla
                 .into(holder.binding.imgBookCover)
+        }
+
+        holder.binding.root.findViewById<android.widget.Button>(R.id.btnVerDetalle)?.setOnClickListener {
+            val context = holder.itemView.context
+            val intent = Intent(context, BookDetailActivity::class.java)
+
+            // Pasamos el objeto libro completo
+            intent.putExtra("EXTRA_LIBRO", libro)
+
+            context.startActivity(intent)
         }
     }
 

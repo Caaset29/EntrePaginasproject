@@ -41,6 +41,10 @@
             android:exported="false" />
 
         <activity
+            android:name=".BookDetailActivity"
+            android:exported="false" />
+
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
 

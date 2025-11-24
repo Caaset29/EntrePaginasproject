@@ -1,5 +1,7 @@
 package com.example.entrepaginasproject.api
 
+import java.io.Serializable
+
 data class Libro(
     val id: Int,
     val titulo: String,
@@ -7,5 +9,6 @@ data class Libro(
     val precio: Double,
     val stock: Int,
     val imagen_url: String?, // Puede ser nulo si no tiene imagen
-    val categoria: String?
-)
+    val categoria: String?,
+    val descripcion: String?
+): Serializable

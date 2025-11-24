@@ -59,6 +59,7 @@
                 android:layout_marginTop="8dp"/>
 
             <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnVerDetalle"
                 android:layout_width="wrap_content"
                 android:layout_height="36dp"
                 android:layout_marginTop="8dp"
