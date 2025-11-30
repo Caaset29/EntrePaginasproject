@@ -29,30 +29,10 @@ class CatalogoActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         // En tu onCreate de CatalogoActivity:
-
-        binding.bottomNavigation.setOnItemSelectedListener { item ->
-            when (item.itemId) {
-                R.id.nav_home -> true
-                R.id.nav_cart -> {
-                    Toast.makeText(this, "Próximamente: Carrito", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.nav_favorites -> {
-                    Toast.makeText(this, "Próximamente: Favoritos", Toast.LENGTH_SHORT).show()
-                    true
-                }
-                R.id.nav_profile -> {
-                    // IR AL PERFIL
-                    startActivity(Intent(this, PerfilActivity::class.java))
-                    true
-                }
-                else -> false
-            }
-        }
-
         setupRecyclerView()
         cargarLibrosDesdeApi()
         setupCategoryListeners()
+        setupBottomNavigation()
     }
 
     private fun setupRecyclerView() {
@@ -61,6 +41,32 @@ class CatalogoActivity : AppCompatActivity() {
         adapter = BookAdapter(emptyList())
         binding.rvBooks.adapter = adapter
     }
+
+    private fun setupBottomNavigation() {
+        binding.bottomNavigation.selectedItemId = R.id.nav_home // Marcar Inicio
+
+        binding.bottomNavigation.setOnItemSelectedListener { item ->
+            when (item.itemId) {
+                R.id.nav_home -> true
+                R.id.nav_cart -> {
+                    Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show()
+                    true
+                }
+                R.id.nav_favorites -> {
+                    // --- AQUÍ ACTIVAMOS LA NAVEGACIÓN A FAVORITOS ---
+                    startActivity(Intent(this, FavoritesActivity::class.java))
+                    // No ponemos finish() si queremos poder volver atrás con el botón del celular
+                    true
+                }
+                R.id.nav_profile -> {
+                    startActivity(Intent(this, PerfilActivity::class.java))
+                    true
+                }
+                else -> false
+            }
+        }
+    }
+
 
     private fun cargarLibrosDesdeApi() {
         ApiClient.instance.obtenerLibros().enqueue(object : Callback<List<Libro>> {
