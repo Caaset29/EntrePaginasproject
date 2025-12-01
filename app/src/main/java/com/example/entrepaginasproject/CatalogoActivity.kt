@@ -49,7 +49,11 @@ class CatalogoActivity : AppCompatActivity() {
             when (item.itemId) {
                 R.id.nav_home -> true
                 R.id.nav_cart -> {
-                    Toast.makeText(this, "Carrito", Toast.LENGTH_SHORT).show()
+                    // Navegar a CartActivity sin cerrar el catálogo (para poder volver con 'Atrás')
+                    val intent = Intent(this, CartActivity::class.java)
+                    startActivity(intent)
+                    // Opcional: Si quieres que se sienta como una sección principal y no una sub-pantalla:
+                    // finish()
                     true
                 }
                 R.id.nav_favorites -> {

@@ -48,6 +48,11 @@
             android:name=".FavoritesActivity"
             android:exported="false" />
 
+        <!-- 6. CARRITO DE COMPRAS (NUEVA) -->
+        <activity
+            android:name=".CartActivity"
+            android:exported="false" />
+
         <activity
             android:name=".MainActivity"
             android:exported="false" />

@@ -42,8 +42,6 @@ class BookDetailActivity : AppCompatActivity() {
             finish()
         }
 
-
-
         binding.btnBack.setOnClickListener { finish() }
 
         binding.btnFavoriteToggle.setOnClickListener {
@@ -51,7 +49,10 @@ class BookDetailActivity : AppCompatActivity() {
         }
 
         binding.btnAddToCart.setOnClickListener {
-            Toast.makeText(this, "Añadido al carrito (Próximamente)", Toast.LENGTH_SHORT).show()
+            if (currentBook != null) {
+                CartRepository.addItem(currentBook!!)
+                Toast.makeText(this, "Libro agregado al carrito", Toast.LENGTH_SHORT).show()
+            }
         }
     }
 
